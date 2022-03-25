@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaTimes } from "react-icons/fa";
+import { RiDeleteBin6Line } from "react-icons/ri";
 
 const Task = ({ task, onDelete, onToggle }) => {
   let { text, date, id, completed, reminder } = task;
@@ -15,11 +15,14 @@ const Task = ({ task, onDelete, onToggle }) => {
     <div className={`task ${reminder && "reminder"} ${completed && "completed"}`} onDoubleClick={() => onToggle(id, "reminder")}>
       <section className="task-data">
         <input type="checkbox" value="completed" checked={completeTask} onChange={completeTaskHandler} />
-        <h3>
-          {text} <FaTimes style={{ color: "red", cursor: "pointer" }} onClick={() => onDelete(task.id)} />
-        </h3>
+        <div>
+          <h3>{text}</h3>
+          <p>{date}</p>
+        </div>
       </section>
-      <p className="task-date">{date}</p>
+      <section className="delete-task">
+        <RiDeleteBin6Line className="delete-icon" onClick={() => onDelete(task.id)} />
+      </section>
     </div>
   );
 };

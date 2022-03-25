@@ -60,6 +60,8 @@ body {
 }
 
 .task {
+  display: flex;
+  justify-content: space-between;
   background: #f4f4f4;
   margin: 5px;
   padding: 0.6rem 1.25rem;
@@ -74,13 +76,9 @@ body {
   text-decoration: line-through;
 }
 
-.task-data {
+.task section {
   display: flex;
   gap: 0.5rem;
-}
-
-.task-date {
-  padding-left: 1.5rem;
 }
 
 .task h3 {
@@ -111,10 +109,16 @@ body {
 }
 
 input[type="checkbox"] {
-  align-self: center;
+  margin-top: 5px;
   height: 18px;
   width: 16px;
   cursor: pointer;
+}
+
+.delete-icon {
+  font-size: 1.5rem;
+  align-self: center;
+  color: red;
 }
 
 .form-control-check {
