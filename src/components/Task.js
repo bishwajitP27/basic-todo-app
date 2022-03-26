@@ -14,7 +14,10 @@ const Task = ({ task, onDelete, onToggle }) => {
   return (
     <div className={`task ${reminder && "reminder"} ${completed && "completed"}`} onDoubleClick={() => onToggle(id, "reminder")}>
       <section className="task-data">
-        <input type="checkbox" value="completed" checked={completeTask} onChange={completeTaskHandler} />
+        <div className="input-group">
+          <input type="checkbox" value="completed" checked={completeTask} onChange={completeTaskHandler} />
+          {completed ? <div className="inner-checkbox"></div> : null}
+        </div>
         <div>
           <h3>{text}</h3>
           <p>{date}</p>
